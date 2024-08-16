@@ -4,6 +4,7 @@ import { Table, Button, Modal, Form } from 'react-bootstrap';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import axios from 'axios';
+import BASE_API_URL from '../services/apiConfig';
 
 function FeedbackPage() {
   const location = useLocation();
@@ -61,7 +62,7 @@ function FeedbackPage() {
     formData.append('email', userEmail);
     formData.append('htmlContent', feedbackContent);
 
-    axios.post('http://localhost:8080/app/send-email', formData)
+    axios.post(`${BASE_API_URL}/app/send-email`, formData)
       .then(() => {
         setEmailSent(true);
         setShowModal(false);

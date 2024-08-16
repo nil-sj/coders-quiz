@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASEAPIURL = "http://localhost:8080";
+import BASE_API_URL from './apiConfig';
+
+const BASEAPIURL = BASE_API_URL;
 
 export const fetchStarters = async () => {
   try {

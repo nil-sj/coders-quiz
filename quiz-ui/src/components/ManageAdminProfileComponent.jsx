@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AuthContext from '../context/AuthContext';
+import BASE_API_URL from '../services/apiConfig';
 
 const ManageAdminProfileComponent = ({ username }) => {
   const { authenticated } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const ManageAdminProfileComponent = ({ username }) => {
     if (authenticated) {
       const fetchProfile = async () => {
         try {
-          const response = await axios.get(`http://localhost:8080/adminprofile/${username}`);
+          const response = await axios.get(`${BASE_API_URL}/adminprofile/${username}`);
           const data = response.data;
           setProfile({
             name: data.name || "",
@@ -51,7 +52,7 @@ const ManageAdminProfileComponent = ({ username }) => {
         delete updatedProfile.password; // Remove password field if it is empty
       }
       //console.log("Updating profile with data: ", updatedProfile);
-      await axios.put(`http://localhost:8080/adminprofile/${username}`, updatedProfile);
+      await axios.put(`${BASE_API_URL}/adminprofile/${username}`, updatedProfile);
       setMessage("Profile updated successfully");
       setMessageType("success"); // Set message type to success
     } catch (err) {

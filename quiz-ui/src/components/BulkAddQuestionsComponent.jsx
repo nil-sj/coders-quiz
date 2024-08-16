@@ -3,6 +3,7 @@ import Papa from 'papaparse';
 import axios from 'axios';
 import { Form, Button, Alert, Container, Row, Col } from 'react-bootstrap';
 import AuthContext from '../context/AuthContext';
+import BASE_API_URL from '../services/apiConfig';
 
 const BulkAddQuestionsComponent = () => {
   const { authenticated } = useContext(AuthContext);
@@ -39,7 +40,7 @@ const BulkAddQuestionsComponent = () => {
           topicId: parseInt(question['topicId'], 10)
         }));
 
-        axios.post('http://localhost:8080/quiz-api/questions/bulk-upload', {
+        axios.post(`${BASE_API_URL}/quiz-api/questions/bulk-upload`, {
           questions: questions
         })
         .then(response => {

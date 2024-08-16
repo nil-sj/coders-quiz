@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BASE_API_URL from '../services/apiConfig';
 
 function FooterComponent() {
   const [attemptCount, setAttemptCount] = useState('000');
@@ -7,7 +8,7 @@ function FooterComponent() {
   useEffect(() => {
     const fetchAttemptCount = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/quiz-api/questions/requestcount');
+        const response = await axios.get(`${BASE_API_URL}/quiz-api/questions/requestcount`);
         const count = response.data;
         setAttemptCount(count.toString().padStart(3, '0'));
       } catch (error) {

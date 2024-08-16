@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Table } from 'react-bootstrap';
 import axios from 'axios';
+import BASE_API_URL from '../services/apiConfig';
 
 function CommentManagerComponent() {
   const [comments, setComments] = useState([]);
@@ -13,7 +14,7 @@ function CommentManagerComponent() {
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/comments/all");
+      const response = await axios.get(`${BASE_API_URL}/comments/all`);
       setComments(response.data);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -23,7 +24,7 @@ function CommentManagerComponent() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this comment?")) {
       try {
-        await axios.delete(`http://localhost:8080/comments/${id}`);
+        await axios.delete(`${BASE_API_URL}/comments/${id}`);
         setComments((prevComments) =>
           prevComments.filter((comment) => comment.id !== id)
         );
@@ -48,7 +49,7 @@ function CommentManagerComponent() {
 
   const handleSave = async () => {
     try {
-      const response = await axios.put(`http://localhost:8080/comments/${editableComment.id}`, editableComment, {
+      const response = await axios.put(`${BASE_API_URL}/comments/${editableComment.id}`, editableComment, {
         headers: {
           "Content-Type": "application/json",
         },

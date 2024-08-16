@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import JumbotronComponent from "../components/JumbotronComponent";
 
+import BASE_API_URL from '../services/apiConfig';
+
 function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,7 +16,7 @@ function ContactPage() {
 
   const fetchApprovedComments = async () => {
     try {
-      const response = await fetch("http://localhost:8080/comments");
+      const response = await fetch(`${BASE_API_URL}/comments`);
       const data = await response.json();
       setComments(data);
     } catch (error) {
@@ -41,7 +43,7 @@ function ContactPage() {
     const newComment = { content, authorName: name, email };
 
     try {
-      const response = await fetch("http://localhost:8080/comments", {
+      const response = await fetch(`${BASE_API_URL}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
