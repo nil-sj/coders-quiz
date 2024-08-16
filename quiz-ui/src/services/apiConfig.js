@@ -1,3 +1,3 @@
-const BASE_API_URL = 'liftoff-curious.railway.internal';
+const BASE_API_URL = 'https://liftoff-curious.railway.internal';
 
 export default BASE_API_URL;
