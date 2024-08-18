@@ -10,7 +10,7 @@ import jakarta.mail.internet.MimeMessage;
 
 @RestController
 @RequestMapping("/app/send-email")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "https://liftoff-curious.vercel.app", "https://codersquizui.netlify.app", "https://quiz.codenil.online"})
 public class EmailController {
 
     @Autowired
