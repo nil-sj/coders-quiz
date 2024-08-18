@@ -31,7 +31,7 @@ function FooterComponent() {
       color: '#f3f3f3'
     }}>
       <p>Created by Team Curious with passion and full-stack web development skills: React, Bootstrap, Java, Spring Boot, and MySQL.</p>
-      <p>Based on the requirements of the Capstone Project for the LaunchCode Full-Stack Web Development Course 2024. View the source code on <a href="https://github.com/ALLHUBS-Jan-2024-Liftoff/liftoff-curious" target="_blank" rel="noopener noreferrer" style={{ color: 'white'}}>GitHub</a>.</p>
+      <p>Based on the requirements of the Capstone Project for the LaunchCode Full-Stack Web Development Course 2024. View the source code on <a href="https://github.com/nil-sj/coders-quiz" target="_blank" rel="noopener noreferrer" style={{ color: 'white'}}>GitHub</a>.</p>
       <p>Coders' Quiz have been attempted {attemptCount} times to date! Will you make the next attempt?</p>
     </footer>
   );
