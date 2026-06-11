@@ -1,0 +1,12 @@
+services:
+  quiz-api:
+    build:
+      context: ./quiz-api
+    container_name: coders-quiz-api
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8082:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
